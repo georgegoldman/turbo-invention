@@ -39,7 +39,7 @@ class _AddProductState extends State<AddProduct> {
       _productController.addProduct(newProduct);
       Get.back();
     } catch (e) {
-      print(e);
+      e.printError();
     }
   }
 

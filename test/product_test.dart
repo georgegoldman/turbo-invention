@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:get/get.dart';
 import 'package:technical_assessment/src/controllers/product_controller.dart';
 import 'package:technical_assessment/src/models/index.dart';
 import 'package:technical_assessment/src/views/screens/home.dart';
@@ -14,8 +13,6 @@ void main() {
     final ProductController controller =
         ProductController(database: mockDatabase);
     await tester.pumpWidget(const MyAppTest());
-
-    final ProductController controller = Get.find();
 
     // Ensure the list is initially empty
     expect(controller.products.length, 0);
@@ -38,7 +35,9 @@ void main() {
       (WidgetTester tester) async {
     await tester.pumpWidget(const MyAppTest());
 
-    final ProductController controller = Get.find();
+    final MockDatabase mockDatabase = MockDatabase();
+    final ProductController controller =
+        ProductController(database: mockDatabase);
 
     // Add a product to the list
     controller.addProduct(Product(

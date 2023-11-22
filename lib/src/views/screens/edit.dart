@@ -61,7 +61,7 @@ class _EditProductState extends State<EditProduct> {
       _productController.updateRecord(product);
       Get.offAll(const Home());
     } catch (e) {
-      print(e.toString());
+      e.printError();
     }
   }
 

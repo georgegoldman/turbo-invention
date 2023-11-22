@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:technical_assessment/src/controllers/product_controller.dart';
-import 'package:technical_assessment/src/models/index.dart';
 import 'package:technical_assessment/src/services/database_service.dart';
 import 'package:technical_assessment/src/views/screens/add_product.dart';
 import 'package:technical_assessment/src/views/screens/product_info.dart';

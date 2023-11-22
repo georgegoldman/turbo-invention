@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 
 import '../models/index.dart';
-import '../services/database_service.dart';
 
 class ProductController extends GetxController {
-  final DatabaseHelper database;
+  final dynamic database;
   ProductController({required this.database});
   var products = <Product>[].obs;
 
@@ -23,7 +22,7 @@ class ProductController extends GetxController {
       }
       return;
     } catch (e) {
-      print("Eror in ");
+      e.printError();
     }
   }
 
