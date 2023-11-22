@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:technical_assessment/src/controllers/product_controller.dart';
+import 'package:technical_assessment/src/services/database_service.dart';
 import 'package:technical_assessment/src/views/widgets/textField.dart';
 import 'package:technical_assessment/src/views/widgets/vertical_spacing.dart';
 
@@ -23,7 +24,8 @@ class _AddProductState extends State<AddProduct> {
   final TextEditingController _quantityController = TextEditingController();
   final TextEditingController _costPriceController = TextEditingController();
   final TextEditingController _sellingPriceController = TextEditingController();
-  final ProductController _productController = Get.put(ProductController());
+  final ProductController _productController =
+      Get.put(ProductController(database: DatabaseHelper()));
 
   addNewProduct() {
     try {

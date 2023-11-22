@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:technical_assessment/src/controllers/product_controller.dart';
+import 'package:technical_assessment/src/services/database_service.dart';
 import 'package:technical_assessment/src/views/screens/edit.dart';
 import 'package:technical_assessment/src/views/widgets/card.dart';
 import 'package:technical_assessment/src/views/widgets/vertical_spacing.dart';
@@ -14,7 +15,8 @@ class ProductInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Extracting the arguments from the current route
-    final ProductController productController = Get.put(ProductController());
+    final ProductController productController =
+        Get.put(ProductController(database: DatabaseHelper()));
     // Accessing the values
     // Uint8List x = arguments['image'];
     // double y = arguments['price'];

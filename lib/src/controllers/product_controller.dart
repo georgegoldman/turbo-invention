@@ -4,6 +4,8 @@ import '../models/index.dart';
 import '../services/database_service.dart';
 
 class ProductController extends GetxController {
+  final DatabaseHelper database;
+  ProductController({required this.database});
   var products = <Product>[].obs;
 
   @override
@@ -14,33 +16,44 @@ class ProductController extends GetxController {
 
   _fetchData() async {
     try {
-      var productList = await DatabaseHelper().getProducts();
+      var productList = await database.getProducts();
       if (productList.isNotEmpty) {
         products.assignAll(productList);
+        return;
       }
+      return;
     } catch (e) {
       print("Eror in ");
     }
   }
 
   void addProduct(Product product) async {
-    await DatabaseHelper().insertProduct(product);
+    await database.insertProduct(product);
     _fetchData();
+    return;
   }
 
   void updateRecord(Product product) async {
     final index = products.indexWhere((p) => p.id == product.id);
     if (index != -1) {
       products[index] = product;
-      await DatabaseHelper().updateProduct(product);
+      await database.updateProduct(product);
+      return;
     }
+    return;
   }
 
   void deleteProduct(Product product) async {
     final index = products.indexWhere((p) => p.id == product.id);
     if (index != -1) {
+      if (product.quantity > 1) {
+        product.quantity--;
+        updateRecord(product);
+        return;
+      }
       products.remove(product);
-      await DatabaseHelper().deleteProduct(product.id!);
+      await database.deleteProduct(product.id!);
+      return;
     }
   }
 
