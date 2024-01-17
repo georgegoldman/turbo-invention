@@ -30,6 +30,6 @@ This repository contains a Flutter app developed as part of a technical assessme
 2. Follow README instructions for setting up the app and connecting to the database.
 
 ## 📬 Contact
-For any inquiries, please reach out to [hello@payble.io](mailto:hello@payble.io).
+For any inquiries, please reach out to [hello@payble.io](mailto:georgegoldmanjohn.o@gmail.com).
 
 Feel free to explore and contribute to this project! 🚀
